@@ -1,7 +1,12 @@
 
 public class Main {
+	
 	public static void main(String[] args) {
-		System.out.println("Hello.");
+		List<Character> board = new ArrayList<>(); //Creating the list for the borad
+		
+		for(int i = 0; i < 81; i++){ //Filling the board with placeholder
+			board.add('-');
+		}
 	}
 }
 

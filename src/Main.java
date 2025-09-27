@@ -1,12 +1,30 @@
+import java.util.*;
+import java.io.*;
 
 public class Main {
-	
-	public static void main(String[] args) {
-		List<Character> board = new ArrayList<>(); //Creating the list for the borad
-		
-		for(int i = 0; i < 81; i++){ //Filling the board with placeholder
-			board.add('-');
+	public static void printOutBoard(char[][] board) {
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board[i].length; j++) {
+				System.out.print(board[i][j] + " ");
+			}
+			System.out.println();
 		}
+	}
+
+	public static void main(String[] args) {
+		char[][] board;
+		board = new char[9][9]; //Setting board to hvae size of 9 by 9
+
+		for (int i = 0; i < 9; i++) { //Filling the board up with some defaut values
+			for (int j = 0; j < 9; j++) {
+				board[i][j] = '-';
+			}
+		}
+
+		printOutBoard(board);
+
+		
+
 	}
 }
 

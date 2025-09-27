@@ -2,8 +2,8 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-	public static void printOutBoard(char[][] board) {
-		for (int i = 0; i < board.length; i++) {
+	public static void printOutBoard(char[][] board) { //Prints out the baord for testing
+		for (int i = 0; i < board.length; i++) {      //Note that it is not formatted!!
 			for (int j = 0; j < board[i].length; j++) {
 				System.out.print(board[i][j] + " ");
 			}

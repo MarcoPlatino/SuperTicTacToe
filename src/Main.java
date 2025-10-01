@@ -12,6 +12,12 @@ public class Main {
 		}
 	}
 
+	public static void move(String move, char[][] board, char turn){
+		switch move{
+			case "a1": board[0][0] = turn break;
+		}
+	}
+
 	public static void printOutBoardFormatted(char[][] board) {
 		System.out.println("Eventually the board will be printed out in a formatted way!");
 	}

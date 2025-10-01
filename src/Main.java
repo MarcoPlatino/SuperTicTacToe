@@ -26,6 +26,7 @@ public class Main {
 			}
 		}
 		System.out.println("Blistering Barnacles");
+		System.out.println("Thundering Typhoons")
 
 		iterateThroughBoard(board);
 

@@ -8,6 +8,7 @@ public class Main {
 				System.out.print(board[i][j] + " ");
 			}
 			System.out.println();
+			
 		}
 	}
 
@@ -24,6 +25,7 @@ public class Main {
 				board[i][j] = '~'; //Place Holder for nothing.
 			}
 		}
+		System.out.println("Blistering Barnacles");
 
 		iterateThroughBoard(board);
 

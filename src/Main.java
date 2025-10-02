@@ -2,11 +2,13 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Main extends JFrame implements ActionListener {
+	private char[][] board;
+	private JButton[] buttons;
 	public static void iterateThroughBoard(char[][] board) { // Prints out the baord for testing
 		for (int i = 0; i < board.length; i++) { // Note that it is not formatted!!
 			for (int j = 0; j < board[i].length; j++) {
@@ -18,20 +20,33 @@ public class Main extends JFrame implements ActionListener {
 	}
 
 	// public static void printOutBoardFormatted(char[][] board) {
-	// 	System.out.println("Eventually the board will be printed out in a formatted way!");
+	// System.out.println("Eventually the board will be printed out in a formatted
+	// way!");
 	// }
 
-	public Main() {
+	public Main(char[][] board) {
+		this.board = board;
 		JFrame frame = new JFrame("RGBconverterGUI");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setPreferredSize(new Dimension(1000, 250));
 
 		JPanel contentpane = new JPanel();
-		contentpane.setLayout(new GridLayout(4, 4));
+		contentpane.setLayout(new GridLayout(9, 9));
 
 		frame.setContentPane(contentpane);
-		
-		contentpane.setPreferredSize(new Dimension(750, 100));
+
+		contentpane.setSize(new Dimension(500, 500));
+
+		this.buttons = new JButton[81];
+		for (int i = 0; i < 81; i++) {
+			int row = i / 9;
+			int col = i % 9;
+			String character = Character.toString(this.board[row][col]);
+			this.buttons[i] = new JButton(character);
+			this.buttons[i].setActionCommand(row + "," + col);
+			this.buttons[i].addActionListener(this);
+			frame.add(this.buttons[i]);
+		}
 
 		frame.pack();
 		frame.setVisible(true);
@@ -53,14 +68,13 @@ public class Main extends JFrame implements ActionListener {
 
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				new Main();
+				new Main(board);
 			}
 		});
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+		// TODO Add something here to handle the events!!!
 	}
 }

@@ -25,26 +25,27 @@ public class Main extends JFrame implements ActionListener {
 	// }
 
 	public Main(char[][] board) {
-		this.board = board;
+		this.board = board; //Make board
 		JFrame frame = new JFrame("RGBconverterGUI");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setPreferredSize(new Dimension(1000, 250));
 
 		JPanel contentpane = new JPanel();
-		contentpane.setLayout(new GridLayout(9, 9));
+		contentpane.setLayout(new GridLayout(9, 9)); //Set it as a grid lyaout 9x9 so it is square 
+														//Might have to be 10x10 for formatting or maybe more!!
 
 		frame.setContentPane(contentpane);
 
 		contentpane.setSize(new Dimension(500, 500));
 
-		this.buttons = new JButton[81];
+		this.buttons = new JButton[81]; //List of buttons
 		for (int i = 0; i < 81; i++) {
 			int row = i / 9;
 			int col = i % 9;
-			String character = Character.toString(this.board[row][col]);
+			String character = Character.toString(this.board[row][col]); //Initialzing buttons
 			this.buttons[i] = new JButton(character);
 			this.buttons[i].setActionCommand(row + "," + col);
-			this.buttons[i].addActionListener(this);
+			this.buttons[i].addActionListener(this); //If color is ever wanting to be change just do it here
 			frame.add(this.buttons[i]);
 		}
 
@@ -62,7 +63,7 @@ public class Main extends JFrame implements ActionListener {
 			}
 		}
 		System.out.println("Blistering Barnacles");
-		System.out.println("Thundering Typhoons!");
+		System.out.println("Thundering Typhoons!"); //Necessary print statements
 
 		iterateThroughBoard(board);
 
@@ -74,7 +75,7 @@ public class Main extends JFrame implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent e) { //TODO Add some event listeners here then it can work!
 		// TODO Add something here to handle the events!!!
 	}
 }

@@ -39,15 +39,17 @@ public class Main extends JFrame implements ActionListener {
 
 		contentpane.setSize(new Dimension(500, 500));
 
-		this.buttons = new JButton[81]; //List of buttons
-		for (int i = 0; i < 81; i++) {
-			int row = i / 9;
-			int col = i % 9;
-			String character = Character.toString(this.board[row][col]); //Initialzing buttons
-			this.buttons[i] = new JButton(character);
-			this.buttons[i].setActionCommand(row + "," + col);
-			this.buttons[i].addActionListener(this); //If color is ever wanting to be change just do it here
-			frame.add(this.buttons[i]);
+		this.buttons = new JButton[9][9]; //List of buttons
+		for (int i = 0; i < 9; i++) {
+			for int j = 0 j < 9; j++){
+				int board = i;
+				int position = j;
+				String character = Character.toString(this.board[board][position]); //Initialzing buttons
+				this.buttons[i][j] = new JButton(character);
+				this.buttons[i][j].setActionCommand(board + ":" + position);
+				this.buttons[i][j].addActionListener(this); //If color is ever wanting to be change just do it here
+				frame.add(this.buttons[i]);
+			}
 		}
 
 		frame.pack();

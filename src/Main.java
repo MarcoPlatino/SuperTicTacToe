@@ -28,7 +28,8 @@ public class Main extends JFrame implements ActionListener {
 		this.board = board; //Make board
 		JFrame frame = new JFrame("RGBconverterGUI");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setPreferredSize(new Dimension(1000, 250));
+		frame.setPreferredSize(new Dimension(500, 500));
+		frame.setResizable(false);
 
 		JPanel contentpane = new JPanel();
 		contentpane.setLayout(new GridLayout(9, 9)); //Set it as a grid lyaout 9x9 so it is square 

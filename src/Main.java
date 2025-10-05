@@ -31,18 +31,21 @@ public class Main extends JFrame implements ActionListener {
 		frame.setPreferredSize(new Dimension(500, 500));
 		frame.setResizable(false); //Stays square
 
+		private static final int boardSize = 9; //Initialize the board to be 9x9
+		private static final int totalSquares = boardSize * boardSize;
+		
 		JPanel contentpane = new JPanel();
-		contentpane.setLayout(new GridLayout(9, 9)); //Set it as a grid lyaout 9x9 so it is square 
+		contentpane.setLayout(new GridLayout(boardSize, boardSize)); //Set it as a grid lyaout 9x9 so it is square 
 														//Might have to be 10x10 for formatting or maybe more!!
 
 		frame.setContentPane(contentpane);
 
 		contentpane.setSize(new Dimension(500, 500));
 
-		this.buttons = new JButton[81]; //List of buttons
-		for (int i = 0; i < 81; i++) {
-			int row = i / 9;
-			int col = i % 9;
+		this.buttons = new JButton[totalSquares]; //List of buttons
+		for (int i = 0; i < totalSquares; i++) {
+			int row = i / boardSize;
+			int col = i % boardSize;
 			String character = Character.toString(this.board[row][col]); //Initialzing buttons
 			this.buttons[i] = new JButton(character);
 			this.buttons[i].setActionCommand(row + "," + col);
@@ -79,4 +82,5 @@ public class Main extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) { //TODO Add some event listeners here then it can work!
 		// TODO Add something here to handle the events!!!
 	}
+
 }

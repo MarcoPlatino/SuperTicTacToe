@@ -9,7 +9,8 @@ import javax.swing.JPanel;
 public class Main extends JFrame implements ActionListener {
 	private char[][] board;
 	private JButton[] buttons;
-	private boolean playerTurn; //0 for player 1, 1 for player 2
+	private boolean playerTurn; // 0 for player 1, 1 for player 2
+
 	public static void iterateThroughBoard(char[][] board) { // Prints out the baord for testing
 		for (int i = 0; i < board.length; i++) { // Note that it is not formatted!!
 			for (int j = 0; j < board[i].length; j++) {
@@ -26,28 +27,28 @@ public class Main extends JFrame implements ActionListener {
 	// }
 
 	public Main(char[][] board) {
-		this.board = board; //Make board
+		this.board = board; // Make board
 		JFrame frame = new JFrame("RGBconverterGUI");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setPreferredSize(new Dimension(500, 500));
-		frame.setResizable(false); //Stays square
+		frame.setResizable(false); // Stays square
 
 		JPanel contentpane = new JPanel();
-		contentpane.setLayout(new GridLayout(9, 9)); //Set it as a grid lyaout 9x9 so it is square 
-														//Might have to be 10x10 for formatting or maybe more!!
+		contentpane.setLayout(new GridLayout(9, 9)); // Set it as a grid lyaout 9x9 so it is square
+														// Might have to be 10x10 for formatting or maybe more!!
 
 		frame.setContentPane(contentpane);
 
 		contentpane.setSize(new Dimension(500, 500));
 
-		this.buttons = new JButton[81]; //List of buttons
+		this.buttons = new JButton[81]; // List of buttons
 		for (int i = 0; i < 81; i++) {
 			int row = i / 9;
 			int col = i % 9;
-			String character = Character.toString(this.board[row][col]); //Initialzing buttons
+			String character = Character.toString(this.board[row][col]); // Initialzing buttons
 			this.buttons[i] = new JButton(character);
 			this.buttons[i].setActionCommand(i + "");
-			this.buttons[i].addActionListener(this); //If color is ever wanting to be change just do it here
+			this.buttons[i].addActionListener(this); // If color is ever wanting to be change just do it here
 			frame.add(this.buttons[i]);
 		}
 
@@ -65,7 +66,7 @@ public class Main extends JFrame implements ActionListener {
 			}
 		}
 		System.out.println("Blistering Barnacles");
-		System.out.println("Thundering Typhoons!"); //Necessary print statements
+		System.out.println("Thundering Typhoons!"); // Necessary print statements
 
 		iterateThroughBoard(board);
 
@@ -77,13 +78,14 @@ public class Main extends JFrame implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent event) { //TODO Add some event listeners here then it can work!
+	public void actionPerformed(ActionEvent event) { // TODO Add some event listeners here then it can work!
 		// TODO Add something here to handle the events!!!
 		String eventName = event.getActionCommand();
 		int indexOfButton = Integer.parseInt(eventName);
 
-		if (this.buttons[indexOfButton].getText() == "~") {
-
+		if (this.buttons[indexOfButton].getText().equals("~")) {
+			this.buttons[indexOfButton].setText("0"); //Added switching kind of
+			
 		}
 	}
 }

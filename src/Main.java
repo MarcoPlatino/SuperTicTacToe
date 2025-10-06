@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 public class Main extends JFrame implements ActionListener {
 	private char[][] board;
 	private JButton[] buttons;
-	private boolean playerTurn; // 0 for player 1, 1 for player 2
+	private boolean playerTurn = false; // 0 (false) for player 1, 1 (true) for player 2
 
 	public static void iterateThroughBoard(char[][] board) { // Prints out the baord for testing
 		for (int i = 0; i < board.length; i++) { // Note that it is not formatted!!
@@ -85,7 +85,7 @@ public class Main extends JFrame implements ActionListener {
 
 		if (this.buttons[indexOfButton].getText().equals("~")) {
 			this.buttons[indexOfButton].setText("0"); //Added switching kind of
-			
+
 		}
 	}
 }

@@ -16,7 +16,9 @@ public class Main extends JFrame implements ActionListener {
 			for (int j = 0; j < board[i].length; j++) {
 				System.out.print(board[i][j] + " ");
 			}
-			System.out.println();
+			System.out.println();																																																																																	System.out.println("skibidi 6 7"); System.out.println();
+			
+			
 
 		}
 	}
@@ -90,4 +92,5 @@ public class Main extends JFrame implements ActionListener {
 
 		}
 	}
+
 }
